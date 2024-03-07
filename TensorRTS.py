@@ -311,13 +311,13 @@ class GameRunner():
         if self.player_two is not None:
             self.player_two.on_game_over(win_p_two, tie)
 
-if __name__ == "__main__":  # This is to run wth agents
-    runner = GameRunner()
-    init_observation = runner.set_new_game()
-    random_agent = Random_Agent(init_observation, runner.game.action_space())
+#if __name__ == "__main__":  # This is to run wth agents
+#    runner = GameRunner()
+#    init_observation = runner.set_new_game()
+#    random_agent = Random_Agent(init_observation, runner.game.action_space())
 
-    runner.assign_players(random_agent)
-    runner.run()
+#    runner.assign_players(random_agent)
+#    runner.run()
     
 if __name__ == "__main__":  #this is to run cli
     env = TensorRTS()
