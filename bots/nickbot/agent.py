@@ -14,7 +14,7 @@ from enn_trainer import load_checkpoint, RogueNetAgent
 class nickbot(Agent):
     def __init__(self, init_observation : Observation, action_space : Dict[ActionName, ActionSpace]) -> None: 
         super().__init__(init_observation, action_space)
-        model = load_checkpoint('checkpoints/latest-step000000008192')
+        model = load_checkpoint('../../checkpoints')
         self.current = RogueNetAgent(model.state.agent)
 
     def take_turn(self, current_game_state : Observation) -> Mapping[ActionName, Action]:
