@@ -19,6 +19,7 @@ class nickbot(Agent):
 
     def take_turn(self, current_game_state : Observation) -> Mapping[ActionName, Action]:
         mapping = self.current.act(current_game_state)
+        print(mapping)
         return mapping
     
     def on_game_start(self) -> None:
