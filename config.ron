@@ -9,4 +9,8 @@ Config(
         bs: 512,
         lr: 0.005,
     ),
+    cuda: false,
+    track: true,
+    wandb_project_name: "TensorRTS",
+    wandb_entity: "nc661320",
 )
