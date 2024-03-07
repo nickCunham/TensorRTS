@@ -8,7 +8,7 @@ from TensorRTS import TensorRTS
 
 import hyperstate
 
-model = load_checkpoint('checkpoints/latest-step000000008192')
+model = load_checkpoint('./checkpoints')
 nickbot = RogueNetAgent(model.state.agent)
 
 @hyperstate.stateful_command(TrainConfig, State, init_train_state)
