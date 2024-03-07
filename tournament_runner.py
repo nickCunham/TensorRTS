@@ -50,7 +50,7 @@ class Matchup():
     def __init__(self, first_bot : Bot, second_bot : Bot) -> None:
         self.first_bot = first_bot
         self.second_bot = second_bot
-        self.games : list[GameRunner] = []
+        self.games : List[GameRunner] = []
         self.final_result : GameResult = None
 
     def fight(self, num_rounds : int, num_rounds_must_win_by_to_win : int) -> None: 
@@ -92,8 +92,8 @@ class Matchup():
         else:
             raise Exception('Number of wins for each player is the same. This should not happen.')
         
-    def stringify_print_results(self) -> list[str]: 
-        results : list[str] = []
+    def stringify_print_results(self) -> List[str]: 
+        results : List[str] = []
         display_string = f'{self.first_bot.student_name} -- {self.second_bot.student_name}'
         results.append(display_string)
         if self.final_result.player_one_win:
@@ -108,7 +108,7 @@ class Matchup():
 class Bracket(): 
     def __init__(self) -> None:
         self.run = False
-        self.matchups : list[Matchup] = []
+        self.matchups : List[Matchup] = []
 
     def add_matchup(self, first_bot : Bot, second_bot : Bot) -> None: 
         self.matchups.append(Matchup(first_bot, second_bot))
@@ -119,7 +119,7 @@ class Bracket():
         for match in self.matchups:
             match.fight(num_rounds, num_rounds_must_win_by_to_win)
 
-    def stringify_print_results(self) -> list[str]:
+    def stringify_print_results(self) -> List[str]:
         assert(self.run)
 
         lines = []
@@ -135,16 +135,16 @@ class Bracket():
         return lines
 
 class Tournament():
-    def __init__(self, bots : list[Bot], num_rounds_per_match : int, num_rounds_must_win_by : int) -> None:
+    def __init__(self, bots : List[Bot], num_rounds_per_match : int, num_rounds_must_win_by : int) -> None:
         self.winner : Bot = None
         self.all_bots = bots
         self.in_bots = bots
-        self.rounds : list[Bracket] = []
+        self.rounds : List[Bracket] = []
 
         self.num_rounds_per_match = num_rounds_per_match
         self.num_rounds_must_win_by = num_rounds_must_win_by
     
-    def create_next_round(in_bots : list[Bot]) -> Bracket: 
+    def create_next_round(in_bots : List[Bot]) -> Bracket: 
         new_round = Bracket()
 
         already_selected = []
@@ -182,7 +182,7 @@ class Tournament():
         self.winner = self.in_bots[0]
 
     def print_results(self) -> None: 
-        results : list[str] = []
+        results : List[str] = []
         results.append('-Beginning Tournament Prinout-')
         results.append("Tournament Settings: ")
         results.append(f'Winner: {self.winner.student_name}')
@@ -208,7 +208,7 @@ class Tournament():
 game_runner = GameRunner(enable_printouts=False)
 
 if __name__ == "__main__":
-    bots : list[Bot] = []
+    bots : List[Bot] = []
 
     bot_root = os.path.join(os.getcwd(), "bots")
 
